@@ -12,7 +12,7 @@
 
 	function UserService(){
 		var api = {
-			createUser = createUser,
+			createUser : createUser,
 			findUserByUsernameAndPassword: findUserByUsernameAndPassword,
 			findUserById: findUserById,
 			updateUser: updateUser,

@@ -13,7 +13,7 @@
                 New Websites
             </a>
             <p class="navbar-text pull-right">
-                <a href="website-list.html" class="navbar-link">
+                <a ng-click="model.createWebsite(name,description)" class="navbar-link">
                   <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
@@ -23,10 +23,12 @@
 </nav>
 
 <div class="container">
+
     <form>
         <div class="form-group">
             <label for="InputWebsiteName">Website Name</label>
-            <input type="text"
+            <input  ng-model = "name"
+                    type="text"
                    placeholder="Name"
                    class="form-control"
                    id="website-name"/>
@@ -34,7 +36,8 @@
 
         <div class="form-group">
             <label for="InputDesc">Website Description</label>
-            <textarea type="text"
+            <textarea ng-model = "description"
+                      type="text"
                       placeholder="Description"
                       class="form-control"
                       rows="5"
