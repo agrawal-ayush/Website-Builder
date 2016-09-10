@@ -3,10 +3,11 @@
         .module("WebAppMaker")
         .controller("ProfileController",ProfileController);
 
-    function ProfileController($routeParams,UserService) {
+    function ProfileController($location,$routeParams,UserService) {
         var vm = this;
         var id = $routeParams.id;
         vm.updateUser = updateUser;
+        vm.unregister = unregister;
 
         function init(){
             UserService
@@ -17,6 +18,19 @@
 
         }
         init();
+        
+        function unregister() {
+            UserService
+                .deleteUser(id)
+                .then(function() {
+                    $location.url("/login");
+                },
+                function () {
+                    vm.error = "Unable to delete your profile";
+                })
+
+
+        }
 
         function updateUser(newUser){
             UserService
