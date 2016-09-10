@@ -3,14 +3,7 @@
 		.module("WebAppMaker")
 		.factory("UserService", UserService);
 
-	var users = [
-        { _id: "123",username: "alice", password: "alice"},
-        { _id: "234",username: "bob", password: "bob"},
-        { _id: "345",username: "charly", password: "charly"},
-        { _id: "456",username: "jannunzi", password: "jannunzi"}
-        ];
-
-	function UserService(){
+	function UserService($http){
 		var api = {
 			createUser : createUser,
 			findUserByUsernameAndPassword: findUserByUsernameAndPassword,
@@ -21,8 +14,12 @@
 
 		return api;
 
-		function createUser(newUser){
-
+		function createUser(username, password){
+			var user = {
+				username: username,
+				password: password
+			};
+			return $http.post("/api/user",user);
 		};
 
 		function deleteUser(userId){
@@ -43,25 +40,14 @@
 		};
 
 		function findUserById(id){
-			for(var i in users){
-                if(users[i]._id === id){
-                    return users[i];  
-                }
-                }
-       
-            return null;      
+			var url = "/api/user/"+id;
+			return $http.get(url);
         };
 
 
 		function findUserByUsernameAndPassword(username,password){
-			for(var i in users){
-                if(users[i].username === username && users[i].password === password){
-                    return users[i];
-                    
-                }
-            }
-              
-            return null;
+			var url = "/api/user?username="+username+"&password="+password;
+			return $http.get(url);
 		};
 	};
 })();

@@ -18,8 +18,10 @@
                 controllerAs: "model"
             })
 
-            .when("/register",{
+            .when("/register", {
                 templateUrl: "/assignment/views/user/register.view.client.html",
+                controller: "RegisterController",
+                controllerAs: "model"
             })
 
             .when("/user/:id",{
