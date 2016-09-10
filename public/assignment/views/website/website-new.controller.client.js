@@ -1,8 +1,6 @@
 /**
  * Created by Ayush on 9/9/2016.
  */
-
-
 (function () {
     angular
         .module("WebAppMaker")
@@ -22,8 +20,5 @@
                 vm.error = "Unable to create website";
             }
         }
-
-
-
     }
 })();

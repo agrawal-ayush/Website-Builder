@@ -29,9 +29,9 @@
             })
 
             .when("/user/:userId/website", {
-            templateUrl : "/assignment/views/website/website-list.view.client.html",
-            controller: "WebsiteListController",
-            controllerAs: "model"
+                templateUrl : "/assignment/views/website/website-list.view.client.html",
+                controller: "WebsiteListController",
+                controllerAs: "model"
             })
 
             .when("/user/:userId/website/new", {
@@ -40,8 +40,34 @@
                 controllerAs: "model"
             })
 
-            .when("/user/:userId/website/:wid", {
-                templateUrl : "/assignment/views/website/website-edit.view.client.html"
+            .when("/user/:userId/website/:websiteId", {
+                templateUrl : "/assignment/views/website/website-edit.view.client.html",
+                controller: "EditWebsiteController",
+                controllerAs: "model"
+            })
+
+            .when("/user/:userId/website/:websiteId/page", {
+                templateUrl : "/assignment/views/page/page-list.view.client.html",
+                controller: "PageListController",
+                controllerAs: "model"
+            })
+
+            .when("/user/:userId/website/:websiteId/page/new", {
+                templateUrl : "/assignment/views/page/page-new.view.client.html",
+                controller: "NewPageController",
+                controllerAs: "model"
+            })
+
+            .when("/user/:userId/website/:websiteId/page/:pageId", {
+                templateUrl : "/assignment/views/page/page-edit.view.client.html",
+                controller: "EditPageController",
+                controllerAs: "model"
+            })
+
+            .when("/user/:userId/website/:websiteId/page/:pageId/widget", {
+                templateUrl : "/assignment/views/widget/widget-list.view.client.html",
+                controller: "WidgetListController",
+                controllerAs: "model"
             })
 
 
@@ -51,4 +77,3 @@
             });
     };
 })();
-

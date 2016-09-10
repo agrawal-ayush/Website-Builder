@@ -12,14 +12,47 @@
                 Page Edit
             </a>
             <p class="navbar-text pull-right">
-                <a href="page-new.view.client.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-plus">
+                <a ng-click="model.updatePage(model.page.name,model.page.description)" class="navbar-link">
+                  <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
             </p>
         </div>
     </div>
 </nav>
+
+
+<div class="container">
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+    <div ng-if="model.success" class="alert alert-success">
+        {{model.success}}
+    </div>
+
+    <form>
+        <div class="form-group">
+            <label>Page Name</label>
+            <input ng-model="model.page.name"
+                    type="text"
+                   placeholder="Name"
+                   class="form-control"
+                   id="website-name"/>
+        </div>
+        <div class="form-group">
+            <label>Page Description</label>
+            <textarea ng-model="model.page.description"
+                    type="text"
+                      placeholder="Description"
+                      class="form-control"
+                      rows="5"
+                      id="website-desciption"/>
+
+            </textarea>
+        </div>
+        <a class="btn btn-danger btn-block" ng-click="model.deletePage(model.pageId)" role="button">Delete</a>
+    </form>
+</div>
 
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

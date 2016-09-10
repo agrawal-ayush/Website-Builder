@@ -3,7 +3,6 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="/assignment/website/website-list.html" class="navbar-link">
                   <span class="glyphicon glyphicon-chevron-left">
                   </span>
                 </a>
@@ -13,8 +12,8 @@
                 New Page
             </a>
             <p class="navbar-text pull-right">
-                <a href="page-new.view.client.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-plus">
+                <a ng-click="model.createPage(name,description)" class="navbar-link">
+                  <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
             </p>
@@ -22,6 +21,32 @@
     </div>
 </nav>
 
+<div class="container">
+
+    <form>
+        <div class="form-group">
+            <label>Page Name</label>
+            <input  ng-model = "name"
+                    type="text"
+                    placeholder="Name"
+                    class="form-control"
+                    id="website-name"/>
+        </div>
+
+        <div class="form-group">
+            <label>Page Description</label>
+            <textarea ng-model = "description"
+                      type="text"
+                      placeholder="Description"
+                      class="form-control"
+                      rows="5"
+                      id="website-desciption"/>
+
+            </textarea>
+        </div>
+    </form>
+
+</div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">

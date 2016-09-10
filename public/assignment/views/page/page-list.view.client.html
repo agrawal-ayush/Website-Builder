@@ -12,7 +12,7 @@
                 Page
             </a>
             <p class="navbar-text pull-right">
-                <a href="/assignment/page/page-new.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new" class="navbar-link">
                   <span class="glyphicon glyphicon-plus">
                   </span>
                 </a>
@@ -23,24 +23,12 @@
 
 <div class="container">
     <ul>
-        <li class="list-group-item">
-            <a href="../widget/widget-list.html">Page 1 </a>
-            <a href="page-edit.html" class="pull-right"><span class="glyphicon glyphicon-cog"></span> </a>
-        </li>
+        <li ng-repeat="page in model.pages" class="list-group-item">
 
-        <li class="list-group-item">
-            <a href="../widget/widget-list.html">Page 2 </a>
-            <a href="page-edit.html" class="pull-right"><span class="glyphicon glyphicon-cog"></span> </a>
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">{{page.name}}</a>
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}"   class="pull-right"><span class="glyphicon glyphicon-cog"></span> </a>
         </li>
-
-        <li class="list-group-item">
-            <a href="../widget/widget-list.html">Page 3</a>
-            <a href="page-edit.html" class="pull-right"><span class="glyphicon glyphicon-cog"></span> </a>
-        </li>
-
     </ul>
-
-
 
 
 </div>
