@@ -13,7 +13,7 @@
                 Websites
             </a>
             <p class="navbar-text pull-right">
-                <a href="website-list.view.client.html" class="navbar-link">
+                <a ng-click="model.updateWebsite(model.website.name,model.website.description)" class="navbar-link">
                   <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
@@ -26,19 +26,21 @@
     <form>
         <div class="form-group">
             <label for="InputWebsiteName">Website Name</label>
-            <input type="text"
-                   placeholder="Name"
-                   class="form-control"
+            <input  ng-model="model.website.name"
+                    type="text"
+                    placeholder="Name"
+                    class="form-control"
                     id="website-name"/>
         </div>
 
         <div class="form-group">
             <label for="InputDesc">Website Description</label>
-            <textarea type="text"
+            <textarea ng-model="model.website.description"
+                      type="text"
                       placeholder="Description"
                       class="form-control"
                       rows="5"
-                        id="website-desciption"/>
+                      id="website-desciption"></textarea>
 
             </textarea>
         </div>
