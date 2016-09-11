@@ -16,38 +16,39 @@
         vm.deletePage = deletePage;
 
         function init() {
-            vm.page = PageService.findPageById(vm.pageId);
-            if(vm.page){
-                vm.success = "Results returned";
-            }
-            else{
-                vm.error = "Unable to retrieve information";
-            }
+            PageService
+                .findPageById(vm.pageId)
+                .then(function (response) {
+                        vm.page = response.data;
+                    },
+                    function (error) {
+                        vm.error = "Could not retrieve data. Reload again !!!!!!"
+                    });
         };
+
         init();
 
-        
+
         function updatePage(name,desciption) {
-            var result = PageService.updatePage(name,desciption,vm.pageId);
-            if(result){
-                // location.href = "/user/"+ vm.userId +"/website/" + vm.websiteId + "/page";
-                $location.url("/user/"+ vm.userId +"/website/" + vm.websiteId + "/page");
-                vm.success = "Updated Successfully";
-            }
-            else{
-                vm.error = "Unable to delete website";
-            }
+            PageService
+                .updatePage(name,desciption,vm.pageId)
+                .then(function (response) {
+                        $location.url("/user/"+ vm.userId +"/website/" + vm.websiteId + "/page");
+                    },
+                    function (error) {
+                        vm.error = "Unable to delete website";
+                    });
         }
 
         function deletePage(pageId) {
-            var result = PageService.deletePage(pageId);
-            if (result) {
-                location.href = "#/user/"+ vm.userId +"/website/" + vm.websiteId + "/page";
-                // $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
-            }
-            else {
-                vm.error = "Unable to delete website";
-            }
+            PageService
+                .deletePage(pageId)
+                .then(function (response) {
+                        location.href = "#/user/"+ vm.userId +"/website/" + vm.websiteId + "/page";
+                    },
+                    function (error) {
+                        vm.error = "Unable to delete website";
+                    });
         }
     }
 })();

@@ -9,7 +9,6 @@ module.exports = function (app){
     app.put("/api/website/:websiteId",updateWebsite);
     app.delete("/api/website/:websiteId",deleteWebsite);
 
-
     var websites = [
         { "_id": "123", "name": "Facebook",  description:"jnknk",  "developerId": "456" },
         { "_id": "234", "name": "Tweeter",   description:"",   "developerId": "456" },

@@ -12,11 +12,17 @@
         var vm = this;
         vm.userId = $routeParams.userId;
         vm.websiteId = $routeParams.websiteId;
-        console.log(vm.userId);
-        console.log(vm.websiteId);
 
         function init() {
-            vm.pages = PageService.findPagesForWebsiteId(vm.websiteId);
+            PageService
+                .findPagesForWebsiteId(vm.websiteId)
+                .then(function (response) {
+                    vm.pages = response.data;
+                },
+                function (error) {
+                    vm.error = "Could not retrieve all the pages. Reload again !!!!!!"
+                });
+
         }
         init();
     }
