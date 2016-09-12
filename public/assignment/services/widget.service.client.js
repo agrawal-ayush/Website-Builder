@@ -7,14 +7,14 @@
         .module("WebAppMaker")
         .factory("WidgetService", WidgetService);
 
-    function WidgetService() {
+    function WidgetService($http) {
         var api = {
             findWidgetsForPageId: findWidgetsForPageId,
         };
         return api;
 
         function findWidgetsForPageId(pageId) {
-            return widgets;
+            return $http.get("/api/page/"+pageId+"/widget");
         };
 
 
