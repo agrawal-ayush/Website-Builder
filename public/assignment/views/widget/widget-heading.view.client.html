@@ -9,7 +9,7 @@
             </p>
 
             <a class="navbar-brand" href="page-list.html">
-                Page List
+                Widget Edit
             </a>
             <p class="navbar-text pull-right">
                 <a href="page-new.html" class="navbar-link">
@@ -20,6 +20,42 @@
         </div>
     </div>
 </nav>
+
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label>Name</label>
+            <input  ng-model="model.heading.name"
+                    type="text"
+                    placeholder="Name"
+                    class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Text</label>
+            <textarea ng-model="model.heading.text"
+                      type="text"
+                      placeholder="text"
+                      class="form-control"
+                      rows="5"
+                      ></textarea>
+        </div>
+        <div class="form-group">
+            <label>Size</label>
+            <textarea ng-model="model.heading.size"
+                      type="number"
+                      placeholder="Size"
+                      class="form-control"
+                      rows="5"
+                      ></textarea>
+        </div>
+
+        <a class="btn btn-danger btn-block" ng-click="#" role="button">Delete</a>
+
+
+    </form>
+
+</div>
 
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
