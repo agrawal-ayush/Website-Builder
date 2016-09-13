@@ -24,7 +24,14 @@
         }
 
         function init() {
-            vm.widgets = WidgetService.findWidgetsForPageId(vm.pageId);
+        	WidgetService
+        		.findWidgetsForPageId(vm.pageId)
+        		.then(function(response){
+        			vm.widgets = response.data;
+        		},
+        		function(error){
+        			vm.error = "Network Error! Please your network and refresh";
+        		})
         }
         init();
 
