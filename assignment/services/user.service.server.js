@@ -27,7 +27,6 @@ module.exports = function (app) {
             }
         }
         res.send(400);
-
     }
     
     function updateUser(req,res) {

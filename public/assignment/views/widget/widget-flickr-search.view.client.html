@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text pull-left">
+                <a href="/assignment/website/website-list.html" class="navbar-link">
+    <span class="glyphicon glyphicon-chevron-left">
+    </span>
+                </a>
+            </p>
+
+            <a class="navbar-brand" href="page-list.html">
+                Search Flickr
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="page-new.html" class="navbar-link">
+    <span class="glyphicon glyphicon-plus">
+    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="input-group">
+        <input ng-model="searchText" type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" ng-click="model.searchPhotos(searchText)" type="button"><span class="glyphicon glyphicon-search"></span></button>
+      </span>
+    </div>
+    <div class="row">
+    <div ng-repeat="photo in model.photos.photo" class="col-xs-4">
+        <img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg">
+    </div>
+        </div>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <div class="row navbar-text ">
+            <div class="col-xs-3 text-center pull-right">
+                <a href="../user/profile.view.client.html">
+                    <span class="glyphicon glyphicon-user "></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
