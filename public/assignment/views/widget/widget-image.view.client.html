@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -10,7 +9,7 @@
             </p>
 
             <a class="navbar-brand" href="page-list.html">
-                Page List
+                Image Edit
             </a>
             <p class="navbar-text pull-right">
                 <a href="page-new.html" class="navbar-link">
@@ -22,12 +21,64 @@
     </div>
 </nav>
 
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label>Name</label>
+            <input  ng-model=""
+                    type="text"
+                    placeholder="Name"
+                    class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Text</label>
+            <input ng-model=""
+                   type="text"
+                   placeholder="text"
+                   class="form-control"
+            />
+        </div>
+        <div class="form-group">
+            <label>URL</label>
+            <input ng-model=""
+                   type="number"
+                   placeholder="URL"
+                   class="form-control"
+            />
+        </div>
+
+        <div class="form-group">
+            <label>Width</label>
+            <input ng-model=""
+                   type="number"
+                   placeholder="Width"
+                   class="form-control"
+            />
+        </div>
+
+        <div class="form-group">
+            <label>Upload</label>
+            <input ng-model=""
+                   type="number"
+                   placeholder="Upload Image"
+                   class="form-control"
+            />
+        </div>
+        <a class="btn btn-success btn-block" ng-click="">Upload</a>
+        <a class="btn btn-danger btn-block" ng-click="#" role="button">Delete</a>
+
+
+    </form>
+
+</div>
+
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
         <div class="row navbar-text ">
             <div class="col-xs-3 text-center pull-right">
-                <a href="../user/profile.view.client.html">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user "></span>
                 </a>
             </div>

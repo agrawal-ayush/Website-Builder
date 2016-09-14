@@ -12,7 +12,7 @@
                 Widget List
             </a>
             <p class="navbar-text pull-right">
-                <a href="../widget/widget-chooser.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" class="navbar-link">
                   <span class="glyphicon glyphicon-plus">
                   </span>
                 </a>
@@ -24,7 +24,9 @@
     
     <div ng-repeat="widget in model.widgets" class="jga-widget">
         <div class="jga-widget-tool">
-            <a href=""><span class="glyphicon glyphicon-cog"></span></a>
+            <a ng-click="model.widgetEdit(widget)">
+                <span class="glyphicon glyphicon-cog"></span>
+            </a>
             <span class="glyphicon glyphicon-align-justify"></span>
         </div>
 

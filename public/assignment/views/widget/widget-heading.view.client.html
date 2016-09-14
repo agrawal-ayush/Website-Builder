@@ -9,11 +9,11 @@
             </p>
 
             <a class="navbar-brand" href="page-list.html">
-                Widget Edit
+                Heading Edit
             </a>
             <p class="navbar-text pull-right">
-                <a href="page-new.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-plus">
+                <a ng-click="" class="navbar-link">
+                  <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
             </p>
@@ -33,21 +33,19 @@
 
         <div class="form-group">
             <label>Text</label>
-            <textarea ng-model="model.heading.text"
-                      type="text"
-                      placeholder="text"
-                      class="form-control"
-                      rows="5"
-                      ></textarea>
+            <input ng-model="model.heading.text"
+                   type="text"
+                   placeholder="text"
+                   class="form-control"
+            />
         </div>
         <div class="form-group">
             <label>Size</label>
-            <textarea ng-model="model.heading.size"
-                      type="number"
-                      placeholder="Size"
-                      class="form-control"
-                      rows="5"
-                      ></textarea>
+            <input ng-model="model.heading.size"
+                   type="number"
+                   placeholder="Size"
+                   class="form-control"
+            />
         </div>
 
         <a class="btn btn-danger btn-block" ng-click="#" role="button">Delete</a>

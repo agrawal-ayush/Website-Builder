@@ -18,6 +18,12 @@
                 controllerAs: "model"
             })
 
+            .when("/flickr", {
+                templateUrl: "/assignment/views/widget/widget-flickr-search.view.client.html",
+                controller: "FlickrImageSearchController",
+                controllerAs: "model"
+            })
+
             .when("/register", {
                 templateUrl: "/assignment/views/user/register.view.client.html",
                 controller: "RegisterController",
@@ -71,6 +77,43 @@
                 controller: "WidgetListController",
                 controllerAs: "model"
             })
+
+            .when("/user/:userId/website/:websiteId/page/:pageId/widget/new", {
+                templateUrl : "/assignment/views/widget/widget-chooser.view.client.html",
+                // controller: "WidgetListController",
+                // controllerAs: "model"
+            })
+
+            .when("/user/:userId/website/:websiteId/page/:pageId/widget/editHeader", {
+                templateUrl : "/assignment/views/widget/widget-heading.view.client.html",
+                // controller: "WidgetListController",
+                // controllerAs: "model"
+            })
+
+            .when("/user/:userId/website/:websiteId/page/:pageId/widget/editHeader", {
+                templateUrl : "/assignment/views/widget/widget-heading.view.client.html",
+                // controller: "WidgetListController",
+                // controllerAs: "model"
+            })
+
+            .when("/user/:userId/website/:websiteId/page/:pageId/widget/editYoutube", {
+                templateUrl : "/assignment/views/widget/widget-youtube.view.client.html",
+                // controller: "WidgetListController",
+                // controllerAs: "model"
+            })
+
+            .when("/user/:userId/website/:websiteId/page/:pageId/widget/editImage", {
+                templateUrl : "/assignment/views/widget/widget-image.view.client.html",
+                // controller: "WidgetListController",
+                // controllerAs: "model"
+            })
+
+            .when("/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", {
+                templateUrl : "/assignment/views/widget/widget-chooser.view.client.html",
+                // controller: "WidgetListController",
+                // controllerAs: "model"
+            })
+
 
 
 
