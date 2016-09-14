@@ -2,7 +2,9 @@
  * Created by Ayush on 9/10/2016.
  */
 
-module.exports = function (app) {
+module.exports = function (app, models) {
+
+    var userModel = models.userModel;
 
     var users = [
         { _id: "123",username: "alice", password: "alice"},
@@ -47,9 +49,11 @@ module.exports = function (app) {
 
     function createUser(req,res){
         var user = req.body;
-        user._id = (new Date()).getTime()+"";
-        users.push(user);
-        res.send(user);
+        userModel
+            .createUser(user);
+        // user._id = (new Date()).getTime()+"";
+        // users.push(user);
+        // res.send(user);
     }
 
     function getUsers(req,res) {

@@ -8,6 +8,7 @@ module.exports = function (app) {
     app.get("/api/widget/:widgetId", findWidgetById);
     app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/widget/:widgetId", deleteWidget);
+    // app.post("/api/uploads​",upload​.single("myFile"​),uploadImage​);
 
     var widgets = [
         {"_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -18,6 +19,21 @@ module.exports = function (app) {
         {"_id": "678", "widgetType": "YOUTUBE","pageId": "321", "width": "100%", "url": "https://youtu.be/AM2Ivdi9c4E"},
         {"_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
     ];
+
+    // function  uploadImage​(req, res) {
+    //     var widgetId      = req.body. widgetId​;
+    //     var width         = req.body. width​;
+    //     var myFile        = req.file;
+    //     var originalname  = myFile.originalname; // file name on user's computer
+    //     var filename      = myFile.filename;     // new file name in upload folder
+    //     var path          = myFile.path;         // full path of uploaded file
+    //     var destination   = myFile.destination;  // folder where file is saved to
+    //     var size          = myFile.size;
+    //     var mimetype      = myFile.mimetype;
+    //
+    //     res.send(200);
+    // }
+
 
     function createWidget(req, res) {
         var newWidget = req.body;
