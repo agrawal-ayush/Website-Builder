@@ -18,42 +18,67 @@ module.exports = function (app, models) {
     app.post("/api/user",createUser);
     app.put("/api/user/:userId",updateUser);
     app.delete("/api/user/:userId",deleteUser);
-    
+
     function deleteUser(req,res) {
         var id = req.params.userId;
-        for(var i in users){
-            if(users[i]._id === id){
-                users.splice(i,1)
-                res.send(200);
-                return;
-            }
-        }
-        res.send(400);
+        userModel
+            .deleteUser(id)
+            .then(
+                function (stats) {
+                    console.log(stats);
+                    res.send(200);
+                },
+                function (error) {
+                    res.statusCode(404).send(error);
+                });
+        // for(var i in users){
+        //     if(users[i]._id === id){
+        //         users.splice(i,1)
+        //         res.send(200);
+        //         return;
+        //     }
+        // }
+        // res.send(400);
     }
-    
+
     function updateUser(req,res) {
         var id = req.params.userId;
         var newUser = req.body;
 
-        for(var i in users){
-            if(users[i]._id === id){
-                users[i].username = newUser.username;
-                users[i].lastName = newUser.lastName;
-                res.send(200);
-                return;
-            }
-        }
-        res.send(400);
+        userModel
+            .updateUser(id,newUser)
+            .then(
+                function (stats) {
+                    res.send(200);
+                },
+                function (error) {
+                    res.statusCode(404).send(error);
+                }
+            )
+
+        // for(var i in users){
+        //     if(users[i]._id === id){
+        //         users[i].username = newUser.username;
+        //         users[i].lastName = newUser.lastName;
+        //         res.send(200);
+        //         return;
+        //     }
+        // }
+        // res.send(400);
 
     }
 
     function createUser(req,res){
         var user = req.body;
         userModel
-            .createUser(user);
-        // user._id = (new Date()).getTime()+"";
-        // users.push(user);
-        // res.send(user);
+            .createUser(user)
+            .then(function (user) {
+                    console.log(user);
+                    res.json(user);
+                },
+                function (error) {
+                    res.statusCode(400).send(error);
+                })
     }
 
     function getUsers(req,res) {
@@ -69,13 +94,24 @@ module.exports = function (app, models) {
     };
 
     function findUserByCredentials(username,password,res){
-        for(var i in users){
-            if(users[i].username === username && users[i].password === password) {
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
+        userModel
+            .findUserByCredentials(username,password)
+            .then(function (user) {
+                    res.json (user);
+                },
+                function (error) {
+                    res.statusCode(404).send(error);
+                })
+
+
+
+        // for(var i in users){
+        //     if(users[i].username === username && users[i].password === password) {
+        //         res.send(users[i]);
+        //         return;
+        //     }
+        // }
+        // res.send({});
     }
 
     function findUserByUsername(username,res){
@@ -90,13 +126,21 @@ module.exports = function (app, models) {
 
     function findUserById(req,res) {
         var id = req.params.userId;
-        for(var i in users){
-            if(users[i]._id === id) {
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
+        userModel
+            .findUserById(id)
+            .then(function (user) {
+                    res.send(user);
+                },
+                function (error) {
+                    res.statusCode(404).send(error);
+                })
+        // for(var i in users){
+        //     if(users[i]._id === id) {
+        //         res.send(users[i]);
+        //         return;
+        //     }
+        // }
+        // res.send({});
     }
 
 };
