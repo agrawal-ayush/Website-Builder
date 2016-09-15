@@ -2,7 +2,11 @@
  * Created by Ayush on 9/11/2016.
  */
 
-module.exports = function (app){
+
+module.exports = function (app, models){
+
+    var websiteModel = models.websiteModel;
+
     app.post("/api/user/:userId/website",createWebsite);
     app.get("/api/user/:userId/website", findAllWebsitesForUser);
     app.get("/api/website/:websiteId", findWebsiteById);
@@ -19,23 +23,43 @@ module.exports = function (app){
     ];
 
     function createWebsite(req,res) {
+        var userId = req.params.userId;
         var newWebsite = req.body;
-        newWebsite._id = (new Date()).getTime()+"";
-        websites.push(newWebsite);
-        res.send(newWebsite);
-        return newWebsite;
+        websiteModel
+            .createWebsite(userId,newWebsite)
+            .then(
+                function (website) {
+                    res.json(website)
+                },
+                function (error) {
+                    res.statusCode(400).send(error);
+                }
+            )
 
     }
     function findAllWebsitesForUser(req,res) {
         var userId = req.params.userId;
-        var resultSet = [];
-        for(var i in websites){
-            if(websites[i].developerId === userId){
-                resultSet.push(websites[i]);
-            }
-        }
-        res.json(resultSet);
-        return;
+
+        websiteModel
+            .findAllWebsitesForUser(userId)
+            .then(
+                function (websites) {
+                    res.json(websites);
+                },
+                function (error) {
+                    res.statusCode(404).send(error);
+                }
+            )
+
+
+        // var resultSet = [];
+        // for(var i in websites){
+        //     if(websites[i].developerId === userId){
+        //         resultSet.push(websites[i]);
+        //     }
+        // }
+        // res.json(resultSet);
+        // return;
 
     }
 

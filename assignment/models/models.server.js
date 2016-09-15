@@ -8,7 +8,8 @@ module.exports = function () {
     mongoose.connect("mongodb://localhost/websiteBuider");
 
     var models = {
-        userModel: require("./user/user.model.server.js")()
+        userModel: require("./user/user.model.server.js")(),
+        websiteModel: require("./website/website.model.server.js")()
         //TODO Add other models
     };
 
