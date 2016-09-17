@@ -11,11 +11,16 @@ module.exports = function () {
     var api = {
         createUser: createUser,
         findUserById: findUserById,
+        findUserByUsername: findUserByUsername,
         findUserByCredentials: findUserByCredentials,
         updateUser: updateUser,
         deleteUser: deleteUser
     }
     return api;
+    
+    function findUserByUsername(username) {
+        return User.findOne({username: username});
+    }
 
     function updateUser(userId,user) {
         delete user._id;

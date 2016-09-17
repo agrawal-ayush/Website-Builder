@@ -8,6 +8,20 @@
         var id = $routeParams.id;
         vm.updateUser = updateUser;
         vm.unregister = unregister;
+        vm.logout = logout;
+        
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function (response) {
+                        $location.url("/login");
+                    },
+                    function () {
+                        $location.url("/login");
+                    }
+                )
+        }
 
         function init(){
             UserService
