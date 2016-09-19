@@ -12,6 +12,11 @@ module.exports = function () {
         },
         password : String,
         firstName : String,
+        facebook: {
+            token: String,
+            id: String,
+            displayName: String
+        },
         lastName : String,
         dob : Date,
         dateCreated : {
