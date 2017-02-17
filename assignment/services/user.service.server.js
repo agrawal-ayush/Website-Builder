@@ -175,14 +175,6 @@ module.exports = function (app, models) {
                 function (error) {
                     res.statusCode(404).send(error);
                 });
-        // for(var i in users){
-        //     if(users[i]._id === id){
-        //         users.splice(i,1)
-        //         res.send(200);
-        //         return;
-        //     }
-        // }
-        // res.send(400);
     }
 
     function updateUser(req,res) {
@@ -200,15 +192,6 @@ module.exports = function (app, models) {
                 }
             )
 
-        // for(var i in users){
-        //     if(users[i]._id === id){
-        //         users[i].username = newUser.username;
-        //         users[i].lastName = newUser.lastName;
-        //         res.send(200);
-        //         return;
-        //     }
-        // }
-        // res.send(400);
 
     }
 
@@ -257,13 +240,7 @@ module.exports = function (app, models) {
                 function (error) {
                     res.statusCode(404).send(error);
                 })
-        // for(var i in users){
-        //     if(users[i]._id === id) {
-        //         res.send(users[i]);
-        //         return;
-        //     }
-        // }
-        // res.send({});
+
     }
 
 };

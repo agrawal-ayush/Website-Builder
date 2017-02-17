@@ -50,14 +50,7 @@ module.exports = function (app, models){
                     res.statusCode(404).send(error);
                 }
             )
-        // var resultSet = [];
-        // for(var i in websites){
-        //     if(websites[i].developerId === userId){
-        //         resultSet.push(websites[i]);
-        //     }
-        // }
-        // res.json(resultSet);
-        // return;
+
 
     }
 
@@ -75,14 +68,6 @@ module.exports = function (app, models){
                 }
             )
 
-        // for(var i in websites){
-        //     if(websites[i]._id === id){
-        //         res.send(websites[i]);
-        //         return;
-        //     }
-        // }
-        // res.send(400);
-        // return;
 
     }
     function updateWebsite(req,res) {
@@ -99,17 +84,6 @@ module.exports = function (app, models){
                 }
             )
 
-        // for(var i in websites){
-        //     if(websites[i]._id === websiteId){
-        //         websites[i].name = updatedWebsiteContent.name;
-        //         websites[i].description = updatedWebsiteContent.description;
-        //         res.send(200);
-        //         return;
-        //     }
-        // }
-        // res.send(400);
-        // return;
-
     }
     function deleteWebsite(req,res) {
         var websiteId = req.params.websiteId;
@@ -121,15 +95,7 @@ module.exports = function (app, models){
                 function (error) {
                     res.send(404);
                 })
-        // for(var i in websites){
-        //     if(websites[i]._id === websiteId){
-        //         websites.splice(i,1);
-        //         res.sendStatus(200);
-        //         return true;
-        //     }
-        // }
-        // res.sendStatus(400);
-        // return false;
+
 
     }
 
